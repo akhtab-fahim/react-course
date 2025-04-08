@@ -47,24 +47,32 @@ const passwordRef = useRef()
 
   return (
     <>
-    <div className='outline-solid w-full max-w-md mx-auto -shadow-md rounded-lg px-8 py-5 my-8 text-orange-500 bg-grey-400'>
+    <div className='font-medium  outline-solid w-full max-w-md mx-auto -shadow-md rounded-lg px-8 py-5 my-8 text-white-500 bg-gradient-to-r from-blue-400 to-purple-400'>
       Password generator
-      <div className='outline-solid flex rounded-lg overflow-hidden mt-3 mb-4'>
+      <div className='outline-1 flex rounded-lg overflow-hidden mt-3 mb-4'>
         <input type="text" value={password} ref={passwordRef} readOnly className='outline-none w-dull py-1 px-3'
           placeholder='password'
         />
-        <button className='shadow-md' onClick={copyPassToClip}>
+        <button 
+          className='shadow-md ml-auto transition-transform transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-500' 
+          onClick={copyPassToClip}>
           Copy
         </button>
-
       </div>
-      <div className='outline-solid flex rounded-lg gap-x-2 '>
+      <div className='outline-2 flex rounded-lg gap-x-2 '>
+        <div className='flex gap-1'>
         <input type="checkbox" name="Numbers" id="" onChange={()=> {setNum((prev)=>!prev)}}/>
         <label htmlFor="">Numbers</label>
+        </div>
+        <div className='flex gap-1'>
         <input type="checkbox" name="Charecters" id="" onChange={()=> setChar((prev)=>!prev)}/>
         <label htmlFor="">Charecters</label>
+        </div>
+        <div className='flex gap-1'>
         <input type="range" min={5} max={20} value={length} onChange={(e)=>{setLength(e.target.value)}}/>
         <label>Length : {length}</label>
+        
+        </div>
       </div>
     </div>
     </>
